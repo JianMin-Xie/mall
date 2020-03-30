@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xjm.mall.mapper.TbNewbeeMallAdminUserMapper">
-  <resultMap id="BaseResultMap" type="com.xjm.mall.domain.TbNewbeeMallAdminUser">
+<mapper namespace="com.xjm.mall.mapper.MallAdminUserMapper">
+  <resultMap id="BaseResultMap" type="com.xjm.mall.domain.MallAdminUser">
     <!--@mbg.generated generated on Sun Mar 29 21:58:21 CST 2020.-->
     <!--@Table tb_newbee_mall_admin_user-->
     <id column="admin_user_id" jdbcType="INTEGER" property="adminUserId" />

@@ -10,7 +10,7 @@ import lombok.Data;
 */  
 @Data
 @Table(name = "tb_newbee_mall_admin_user")
-public class TbNewbeeMallAdminUser implements Serializable {
+public class MallAdminUser implements Serializable {
     /**
      * 管理员id
      */

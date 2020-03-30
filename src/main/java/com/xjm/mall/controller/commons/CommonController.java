@@ -1,4 +1,4 @@
-package com.xjm.mall.commons;
+package com.xjm.mall.controller.commons;
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import org.springframework.beans.factory.annotation.Autowired;

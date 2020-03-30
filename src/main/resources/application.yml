@@ -17,8 +17,10 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
+  jackson:
+    date-format: yyyy-MM-dd hh:mm:ss
 
 mybatis:
-  # 实体类的存放路径
+  # 实锟斤拷锟斤拷拇锟斤拷路锟斤拷
   type-aliases-package: com.xjm.mall.domain
   mapper-locations: classpath:mapper/*.xml

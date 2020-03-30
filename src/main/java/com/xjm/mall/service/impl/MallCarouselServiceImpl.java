@@ -1,7 +1,7 @@
 package com.xjm.mall.service.impl;
 import java.util.Date;
 
-import com.xjm.mall.commons.ServiceResultEnum;
+import com.xjm.mall.enums.ServiceResultEnum;
 import com.xjm.mall.domain.MallCarousel;
 import com.xjm.mall.utils.PageQueryUtil;
 import com.xjm.mall.utils.PageResult;

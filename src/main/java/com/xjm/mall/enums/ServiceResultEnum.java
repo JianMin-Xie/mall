@@ -1,4 +1,4 @@
-package com.xjm.mall.commons;
+package com.xjm.mall.enums;
 
 public enum ServiceResultEnum {
     ERROR("error"),

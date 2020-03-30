@@ -172,10 +172,10 @@ function categoryEdit() {
  * 不过代码我也写了一部分，如果想保留删除功能的话可以在此代码的基础上进行修改。
  */
 function deleteCagegory() {
-    swal("未开放", {
-        icon: "warning",
-    });
-    return;
+    // swal("未开放", {
+    //     icon: "warning",
+    // });
+    // return;
     var ids = getSelectedRows();
     if (ids == null) {
         return;

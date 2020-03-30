@@ -1,5 +1,6 @@
 package com.xjm.mall.config;
 
+import com.xjm.mall.commons.Constants;
 import com.xjm.mall.interceptor.AdminLoginInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +29,7 @@ public class MallWebMvcConfigurer implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/upload/**").addResourceLocations("file:D:\\upload\\");
+        registry.addResourceHandler("/upload/**").addResourceLocations("file:"+ Constants.FILE_UPLOAD_DIC);
+        registry.addResourceHandler("/goods-img/**").addResourceLocations("file:" + Constants.FILE_UPLOAD_DIC);
     }
 }

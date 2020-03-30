@@ -1,6 +1,6 @@
 package com.xjm.mall.controller.admin;
 
-import com.xjm.mall.commons.ServiceResultEnum;
+import com.xjm.mall.enums.ServiceResultEnum;
 import com.xjm.mall.domain.MallCarousel;
 import com.xjm.mall.service.MallCarouselService;
 import com.xjm.mall.utils.PageQueryUtil;

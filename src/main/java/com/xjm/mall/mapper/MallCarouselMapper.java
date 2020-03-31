@@ -15,4 +15,7 @@ public interface MallCarouselMapper extends MyMapper<MallCarousel> {
     List<MallCarousel> findCarouselList(PageQueryUtil pageUtil);
 
     int getTotalCarousels(PageQueryUtil pageUtil);
+
+
+    List<MallCarousel> findCarouselsByNum(int number);
 }

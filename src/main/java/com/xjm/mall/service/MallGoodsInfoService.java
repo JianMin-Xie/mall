@@ -4,6 +4,8 @@ import com.xjm.mall.domain.MallGoodsInfo;
 import com.xjm.mall.utils.PageQueryUtil;
 import com.xjm.mall.utils.PageResult;
 
+import java.util.List;
+
 /**
 @author Jm
 @create 2020-03-31 14:23
@@ -48,4 +50,5 @@ public interface MallGoodsInfoService{
      * @return
      */
     boolean batchUpdateSellStatus(Long[] ids, int sellStatus);
+
 }

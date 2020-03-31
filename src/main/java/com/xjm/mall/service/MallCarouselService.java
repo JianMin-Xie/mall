@@ -1,8 +1,11 @@
 package com.xjm.mall.service;
 
+import com.xjm.mall.controller.vo.MallIndexCarouselVO;
 import com.xjm.mall.domain.MallCarousel;
 import com.xjm.mall.utils.PageQueryUtil;
 import com.xjm.mall.utils.PageResult;
+
+import java.util.List;
 
 /**
 @author Jm
@@ -45,4 +48,12 @@ public interface MallCarouselService{
          * @return
          */
         String updateCarousel(MallCarousel carousel);
+
+        /**
+         * 返回固定数量的轮播图对象(首页调用)
+         *
+         * @param number
+         * @return
+         */
+        List<MallIndexCarouselVO> getCarouselsForIndex(int number);
 }

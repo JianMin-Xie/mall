@@ -1,14 +1,18 @@
 package com.xjm.mall.service.impl;
+import java.util.ArrayList;
 import java.util.Date;
 
+import com.xjm.mall.controller.vo.MallIndexCarouselVO;
 import com.xjm.mall.enums.ServiceResultEnum;
 import com.xjm.mall.domain.MallCarousel;
+import com.xjm.mall.utils.BeanUtil;
 import com.xjm.mall.utils.PageQueryUtil;
 import com.xjm.mall.utils.PageResult;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.xjm.mall.mapper.MallCarouselMapper;
 import com.xjm.mall.service.MallCarouselService;
+import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.Arrays;
@@ -76,5 +80,15 @@ public class MallCarouselServiceImpl implements MallCarouselService{
             return ServiceResultEnum.SUCCESS.getResult();
         }
         return ServiceResultEnum.DB_ERROR.getResult();
+    }
+
+    @Override
+    public List<MallIndexCarouselVO> getCarouselsForIndex(int number) {
+        List<MallIndexCarouselVO> mallIndexCarouselVOS = new ArrayList<>(number);
+        List<MallCarousel> carousels = mallCarouselMapper.findCarouselsByNum(number);
+        if (!CollectionUtils.isEmpty(carousels)) {
+            mallIndexCarouselVOS = BeanUtil.copyList(carousels, MallIndexCarouselVO.class);
+        }
+        return mallIndexCarouselVOS;
     }
 }

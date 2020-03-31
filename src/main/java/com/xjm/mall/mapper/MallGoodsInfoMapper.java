@@ -17,4 +17,8 @@ public interface MallGoodsInfoMapper extends MyMapper<MallGoodsInfo> {
     int getTotalMallGoods(PageQueryUtil pageUtil);
 
     int batchUpdateSellStatus(@Param("orderIds")Long[] orderIds, @Param("sellStatus") int sellStatus);
+
+    List<MallGoodsInfo> selectByPrimaryKeys(List<Long> goodsIds);
+
+
 }

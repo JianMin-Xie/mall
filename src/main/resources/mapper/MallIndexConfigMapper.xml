@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjm.mall.mapper.MallIndexConfigMapper">
+  <resultMap id="BaseResultMap" type="com.xjm.mall.domain.MallIndexConfig">
+    <!--@mbg.generated generated on Tue Mar 31 20:04:23 CST 2020.-->
+    <!--@Table tb_newbee_mall_index_config-->
+    <id column="config_id" jdbcType="BIGINT" property="configId" />
+    <result column="config_name" jdbcType="VARCHAR" property="configName" />
+    <result column="config_type" jdbcType="TINYINT" property="configType" />
+    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="redirect_url" jdbcType="VARCHAR" property="redirectUrl" />
+    <result column="config_rank" jdbcType="INTEGER" property="configRank" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_user" jdbcType="INTEGER" property="updateUser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Tue Mar 31 20:04:23 CST 2020.-->
+    config_id, config_name, config_type, goods_id, redirect_url, config_rank, is_deleted, 
+    create_time, create_user, update_time, update_user
+  </sql>
+
+  <select id="findIndexConfigList" parameterType="Map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from tb_newbee_mall_index_config
+    <where>
+      <if test="configType!=null and configType!=''">
+        and config_type = #{configType}
+      </if>
+      and is_deleted = 0
+    </where>
+    order by config_rank desc
+    <if test="start!=null and limit!=null">
+      limit #{start},#{limit}
+    </if>
+  </select>
+
+  <select id="getTotalIndexConfigs" parameterType="Map" resultType="int">
+    select count(*) from tb_newbee_mall_index_config
+    <where>
+      <if test="configType!=null and configType!=''">
+        and config_type = #{configType}
+      </if>
+      and is_deleted = 0
+    </where>
+  </select>
+
+  <update id="deleteBatch">
+    update tb_newbee_mall_index_config
+    set is_deleted=1,update_time=now() where is_deleted=0 and config_id in
+    <foreach item="id" collection="array" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </update>
+
+  <select id="findIndexConfigsByTypeAndNum" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from tb_newbee_mall_index_config
+    where config_type = #{configType} and is_deleted = 0
+    order by config_rank desc
+    limit #{number}
+  </select>
+
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjm.mall.mapper.MallShoppingCartItemMapper">
+  <resultMap id="BaseResultMap" type="com.xjm.mall.domain.MallShoppingCartItem">
+    <!--@mbg.generated generated on Wed Apr 01 21:47:48 CST 2020.-->
+    <!--@Table tb_newbee_mall_shopping_cart_item-->
+    <id column="cart_item_id" jdbcType="BIGINT" property="cartItemId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="goods_count" jdbcType="INTEGER" property="goodsCount" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 01 21:47:48 CST 2020.-->
+    cart_item_id, user_id, goods_id, goods_count, is_deleted, create_time, update_time
+  </sql>
+  <select id="selectByUserId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from tb_newbee_mall_shopping_cart_item
+    where user_id = #{newBeeMallUserId,jdbcType=BIGINT} and is_deleted = 0
+    limit #{number}
+  </select>
+</mapper>

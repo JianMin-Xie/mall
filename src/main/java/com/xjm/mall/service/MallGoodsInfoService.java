@@ -51,4 +51,12 @@ public interface MallGoodsInfoService{
      */
     boolean batchUpdateSellStatus(Long[] ids, int sellStatus);
 
+    /**
+     * 商品搜索
+     *
+     * @param pageUtil
+     * @return
+     */
+    PageResult searchMallGoods(PageQueryUtil pageUtil);
+
 }

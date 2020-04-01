@@ -20,5 +20,8 @@ public interface MallGoodsInfoMapper extends MyMapper<MallGoodsInfo> {
 
     List<MallGoodsInfo> selectByPrimaryKeys(List<Long> goodsIds);
 
+    List<MallGoodsInfo> findNewBeeMallGoodsListBySearch(PageQueryUtil pageUtil);
 
+
+    int getTotalMallGoodsBySearch(PageQueryUtil pageUtil);
 }

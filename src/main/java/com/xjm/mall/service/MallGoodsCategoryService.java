@@ -1,6 +1,7 @@
 package com.xjm.mall.service;
 
 import com.xjm.mall.controller.vo.MallIndexCategoryVO;
+import com.xjm.mall.controller.vo.SearchPageCategoryVO;
 import com.xjm.mall.domain.MallGoodsCategory;
 import com.xjm.mall.utils.PageQueryUtil;
 import com.xjm.mall.utils.PageResult;
@@ -45,20 +46,20 @@ public interface MallGoodsCategoryService{
          */
         Boolean deleteBatch(Integer[] ids);
 
-//        /**
-//         * 返回分类数据(首页调用)
-//         *
-//         * @return
-//         */
-//        List<NewBeeMallIndexCategoryVO> getCategoriesForIndex();
-//
-//        /**
-//         * 返回分类数据(搜索页调用)
-//         *
-//         * @param categoryId
-//         * @return
-//         */
-//        SearchPageCategoryVO getCategoriesForSearch(Long categoryId);
+        /**
+         * 返回分类数据(首页调用)
+         *
+         * @return
+         */
+        List<MallIndexCategoryVO> getCategoriesForIndex();
+
+        /**
+         * 返回分类数据(搜索页调用)
+         *
+         * @param categoryId
+         * @return
+         */
+        SearchPageCategoryVO getCategoriesForSearch(Long categoryId);
 
         /**
          * 根据parentId和level获取分类列表
@@ -69,10 +70,4 @@ public interface MallGoodsCategoryService{
          */
         List<MallGoodsCategory> selectByLevelAndParentIdsAndNumber(List<Long> parentIds, int categoryLevel);
 
-        /**
-         * 返回分类数据(首页调用)
-         *
-         * @return
-         */
-        List<MallIndexCategoryVO> getCategoriesForIndex();
 }

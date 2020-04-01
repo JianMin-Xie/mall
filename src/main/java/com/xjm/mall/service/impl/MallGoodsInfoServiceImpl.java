@@ -1,14 +1,18 @@
 package com.xjm.mall.service.impl;
 
+import com.xjm.mall.controller.vo.MallSearchGoodsVO;
 import com.xjm.mall.domain.MallGoodsInfo;
 import com.xjm.mall.enums.ServiceResultEnum;
+import com.xjm.mall.utils.BeanUtil;
 import com.xjm.mall.utils.PageQueryUtil;
 import com.xjm.mall.utils.PageResult;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.xjm.mall.mapper.MallGoodsInfoMapper;
 import com.xjm.mall.service.MallGoodsInfoService;
+import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -63,6 +67,30 @@ public class MallGoodsInfoServiceImpl implements MallGoodsInfoService{
         return mallGoodsInfoMapper.batchUpdateSellStatus(ids, sellStatus) > 0;
     }
 
+    @Override
+    public PageResult searchMallGoods(PageQueryUtil pageUtil) {
+        List<MallGoodsInfo> goodsList = mallGoodsInfoMapper.findNewBeeMallGoodsListBySearch(pageUtil);
+        int total = mallGoodsInfoMapper.getTotalMallGoodsBySearch(pageUtil);
+        List<MallSearchGoodsVO> newBeeMallSearchGoodsVOS = new ArrayList<>();
+        if (!CollectionUtils.isEmpty(goodsList)) {
+            newBeeMallSearchGoodsVOS = BeanUtil.copyList(goodsList, MallSearchGoodsVO.class);
+            for (MallSearchGoodsVO newBeeMallSearchGoodsVO : newBeeMallSearchGoodsVOS) {
+                String goodsName = newBeeMallSearchGoodsVO.getGoodsName();
+                String goodsIntro = newBeeMallSearchGoodsVO.getGoodsIntro();
+                // 字符串过长导致文字超出的问题
+                if (goodsName.length() > 28) {
+                    goodsName = goodsName.substring(0, 28) + "...";
+                    newBeeMallSearchGoodsVO.setGoodsName(goodsName);
+                }
+                if (goodsIntro.length() > 30) {
+                    goodsIntro = goodsIntro.substring(0, 30) + "...";
+                    newBeeMallSearchGoodsVO.setGoodsIntro(goodsIntro);
+                }
+            }
+        }
+        PageResult pageResult = new PageResult(newBeeMallSearchGoodsVOS, total, pageUtil.getLimit(), pageUtil.getPage());
+        return pageResult;
+    }
 
 
 }

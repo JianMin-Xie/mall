@@ -1,6 +1,6 @@
 package com.xjm.mall.service.impl;
 
-import com.xjm.mall.commons.Constants;
+import com.xjm.mall.common.Constants;
 import com.xjm.mall.controller.vo.MallIndexCategoryVO;
 import com.xjm.mall.controller.vo.SecondLevelCategoryVO;
 import com.xjm.mall.controller.vo.ThirdLevelCategoryVO;

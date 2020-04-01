@@ -1,4 +1,4 @@
-package com.xjm.mall.commons;
+package com.xjm.mall.common;
 
 /**
  *常量配置

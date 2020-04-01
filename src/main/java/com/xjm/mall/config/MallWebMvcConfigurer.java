@@ -1,12 +1,15 @@
 package com.xjm.mall.config;
 
-import com.xjm.mall.commons.Constants;
+import com.xjm.mall.common.Constants;
 import com.xjm.mall.interceptor.AdminLoginInterceptor;
+import com.xjm.mall.interceptor.MallLoginInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import javax.annotation.Resource;
 
 /**
  * @author Jm
@@ -14,8 +17,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class MallWebMvcConfigurer implements WebMvcConfigurer {
 
-    @Autowired
+    @Resource
     private AdminLoginInterceptor adminLoginInterceptor;
+
+    @Resource
+    private MallLoginInterceptor mallLoginInterceptor;
     
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -25,6 +31,23 @@ public class MallWebMvcConfigurer implements WebMvcConfigurer {
                 .excludePathPatterns("/admin/login")
                 .excludePathPatterns("/admin/dist/**")
                 .excludePathPatterns("/admin/plugins/**");
+
+        // 商城页面登陆拦截
+        registry.addInterceptor(mallLoginInterceptor)
+                .excludePathPatterns("/admin/**")
+                .excludePathPatterns("/register")
+                .excludePathPatterns("/login")
+                .excludePathPatterns("/logout")
+                .addPathPatterns("/goods/detail/**")
+                .addPathPatterns("/shop-cart")
+                .addPathPatterns("/shop-cart/**")
+                .addPathPatterns("/saveOrder")
+                .addPathPatterns("/orders")
+                .addPathPatterns("/orders/**")
+                .addPathPatterns("/personal")
+                .addPathPatterns("/personal/updateInfo")
+                .addPathPatterns("/selectPayType")
+                .addPathPatterns("/payPage");
     }
 
     @Override

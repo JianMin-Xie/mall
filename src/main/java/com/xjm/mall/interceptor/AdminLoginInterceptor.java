@@ -17,16 +17,13 @@ public class AdminLoginInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
-        System.out.println("进入拦截器...");
         String uri = request.getRequestURI();
         if (uri.startsWith("/admin") && null == request.getSession().getAttribute("loginUser")) {
             request.getSession().setAttribute("errorMsg", "请登陆");
             response.sendRedirect(request.getContextPath() + "/admin/login");
-            System.out.println("未登录，拦截成功...");
             return false;
         } else {
             request.getSession().removeAttribute("errorMsg");
-            System.out.println("已登录，放行...");
             return true;
         }
     }

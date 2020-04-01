@@ -1,7 +1,5 @@
 package com.xjm.mall.service;
 
-import com.xjm.mall.controller.vo.MallUserVO;
-import com.xjm.mall.domain.MallUser;
 import com.xjm.mall.utils.PageQueryUtil;
 import com.xjm.mall.utils.PageResult;
 
@@ -28,5 +26,24 @@ public interface MallUserService {
          * @return
          */
         Boolean lockUsers(Integer[] ids, int lockStatus);
+
+        /**
+         * 用户注册
+         *
+         * @param loginName
+         * @param password
+         * @return
+         */
+        String register(String loginName, String password);
+
+        /**
+         * 登录
+         *
+         * @param loginName
+         * @param passwordMD5
+         * @param httpSession
+         * @return
+         */
+        String login(String loginName, String passwordMD5, HttpSession httpSession);
 
 }

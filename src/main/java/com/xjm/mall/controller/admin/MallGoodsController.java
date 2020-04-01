@@ -1,6 +1,6 @@
 package com.xjm.mall.controller.admin;
 
-import com.xjm.mall.commons.Constants;
+import com.xjm.mall.common.Constants;
 import com.xjm.mall.domain.MallGoodsCategory;
 import com.xjm.mall.domain.MallGoodsInfo;
 import com.xjm.mall.enums.MallCategoryLevelEnum;

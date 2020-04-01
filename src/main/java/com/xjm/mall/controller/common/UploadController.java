@@ -1,7 +1,7 @@
-package com.xjm.mall.controller.commons;
+package com.xjm.mall.controller.common;
 
 
-import com.xjm.mall.commons.Constants;
+import com.xjm.mall.common.Constants;
 import com.xjm.mall.utils.MallUtils;
 import com.xjm.mall.utils.Result;
 import com.xjm.mall.utils.ResultGenerator;

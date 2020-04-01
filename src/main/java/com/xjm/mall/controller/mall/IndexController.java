@@ -1,6 +1,6 @@
 package com.xjm.mall.controller.mall;
 
-import com.xjm.mall.commons.Constants;
+import com.xjm.mall.common.Constants;
 import com.xjm.mall.controller.vo.MallIndexCarouselVO;
 import com.xjm.mall.controller.vo.MallIndexCategoryVO;
 import com.xjm.mall.controller.vo.MallIndexConfigGoodsVO;

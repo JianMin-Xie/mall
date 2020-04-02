@@ -69,7 +69,7 @@ public class MallGoodsInfoServiceImpl implements MallGoodsInfoService{
 
     @Override
     public PageResult searchMallGoods(PageQueryUtil pageUtil) {
-        List<MallGoodsInfo> goodsList = mallGoodsInfoMapper.findNewBeeMallGoodsListBySearch(pageUtil);
+        List<MallGoodsInfo> goodsList = mallGoodsInfoMapper.findMallGoodsListBySearch(pageUtil);
         int total = mallGoodsInfoMapper.getTotalMallGoodsBySearch(pageUtil);
         List<MallSearchGoodsVO> newBeeMallSearchGoodsVOS = new ArrayList<>();
         if (!CollectionUtils.isEmpty(goodsList)) {

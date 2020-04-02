@@ -93,7 +93,7 @@
     );
   </select>
 
-  <select id="findNewBeeMallGoodsListBySearch" parameterType="Map" resultMap="BaseResultMap">
+  <select id="findMallGoodsListBySearch" parameterType="Map" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
     from tb_newbee_mall_goods_info

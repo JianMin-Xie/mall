@@ -1,6 +1,7 @@
 package com.xjm.mall.mapper;
 
 import com.xjm.mall.domain.MallGoodsInfo;
+import com.xjm.mall.dto.StockNumDTO;
 import com.xjm.mall.utils.PageQueryUtil;
 import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.MyMapper;
@@ -22,6 +23,7 @@ public interface MallGoodsInfoMapper extends MyMapper<MallGoodsInfo> {
 
     List<MallGoodsInfo> findNewBeeMallGoodsListBySearch(PageQueryUtil pageUtil);
 
-
     int getTotalMallGoodsBySearch(PageQueryUtil pageUtil);
+
+    int updateStockNum(@Param("stockNumDTOS") List<StockNumDTO> stockNumDTOS);
 }

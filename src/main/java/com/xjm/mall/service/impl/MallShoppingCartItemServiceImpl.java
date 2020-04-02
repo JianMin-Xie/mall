@@ -70,7 +70,10 @@ public class MallShoppingCartItemServiceImpl implements MallShoppingCartItemServ
     @Override
     public String saveMallCartItem(MallShoppingCartItem mallShoppingCartItem) {
         Example example = new Example(MallShoppingCartItem.class);
-        example.createCriteria().andEqualTo("userId", mallShoppingCartItem.getUserId()).andEqualTo("goodsId", mallShoppingCartItem.getGoodsId());
+        example.createCriteria()
+                .andEqualTo("userId", mallShoppingCartItem.getUserId())
+                .andEqualTo("goodsId", mallShoppingCartItem.getGoodsId())
+                .andEqualTo("isDeleted",0);
         MallShoppingCartItem temp = mallShoppingCartItemMapper.selectOneByExample(example);
         if (temp != null) {
             //已存在则修改该记录

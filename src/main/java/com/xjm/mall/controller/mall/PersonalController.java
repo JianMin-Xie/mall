@@ -1,6 +1,8 @@
 package com.xjm.mall.controller.mall;
 
 import com.xjm.mall.common.Constants;
+import com.xjm.mall.controller.vo.MallUserVO;
+import com.xjm.mall.domain.MallUser;
 import com.xjm.mall.enums.ServiceResultEnum;
 import com.xjm.mall.service.MallUserService;
 import com.xjm.mall.utils.MD5Util;
@@ -10,10 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -25,6 +29,13 @@ public class PersonalController {
 
     @Resource
     private MallUserService mallUserService;
+
+    @GetMapping("/personal")
+    public String personalPage(HttpServletRequest request,
+                               HttpSession httpSession) {
+        request.setAttribute("path", "personal");
+        return "mall/personal";
+    }
 
     /**
      * 登陆页面跳转
@@ -42,6 +53,11 @@ public class PersonalController {
     @GetMapping({"/register", "register.html"})
     public String registerPage() {
         return "mall/register";
+    }
+
+    @GetMapping("/personal/addresses")
+    public String addressesPage() {
+        return "mall/addresses";
     }
 
     @PostMapping("/login")
@@ -107,5 +123,19 @@ public class PersonalController {
     public String logout(HttpSession httpSession) {
         httpSession.removeAttribute(Constants.MALL_USER_SESSION_KEY);
         return "mall/login";
+    }
+
+    @PostMapping("/personal/updateInfo")
+    @ResponseBody
+    public Result updateInfo(@RequestBody MallUser mallUser, HttpSession httpSession) {
+        MallUserVO mallUserTemp = mallUserService.updateUserInfo(mallUser, httpSession);
+        if (mallUserTemp == null) {
+            Result result = ResultGenerator.genFailResult("修改失败");
+            return result;
+        } else {
+            //返回成功
+            Result result = ResultGenerator.genSuccessResult();
+            return result;
+        }
     }
 }

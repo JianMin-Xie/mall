@@ -62,7 +62,7 @@ public class ShoppingCartController {
 
     @PostMapping("/shop-cart")
     @ResponseBody
-    public Result saveNewBeeMallShoppingCartItem(@RequestBody MallShoppingCartItem mallShoppingCartItem,
+    public Result saveMallShoppingCartItem(@RequestBody MallShoppingCartItem mallShoppingCartItem,
                                                  HttpSession httpSession) {
         MallUserVO user = (MallUserVO) httpSession.getAttribute(Constants.MALL_USER_SESSION_KEY);
         mallShoppingCartItem.setUserId(user.getUserId());
@@ -78,7 +78,7 @@ public class ShoppingCartController {
 
     @PutMapping("/shop-cart")
     @ResponseBody
-    public Result updateNewBeeMallShoppingCartItem(@RequestBody MallShoppingCartItem mallShoppingCartItem,
+    public Result updateMallShoppingCartItem(@RequestBody MallShoppingCartItem mallShoppingCartItem,
                                                    HttpSession httpSession) {
         MallUserVO user = (MallUserVO) httpSession.getAttribute(Constants.MALL_USER_SESSION_KEY);
         mallShoppingCartItem.setUserId(user.getUserId());
@@ -94,7 +94,7 @@ public class ShoppingCartController {
 
     @DeleteMapping("/shop-cart/{newBeeMallShoppingCartItemId}")
     @ResponseBody
-    public Result updateNewBeeMallShoppingCartItem(@PathVariable("newBeeMallShoppingCartItemId") Long mallShoppingCartItemId,
+    public Result updateMallShoppingCartItem(@PathVariable("newBeeMallShoppingCartItemId") Long mallShoppingCartItemId,
                                                    HttpSession httpSession) {
         MallUserVO user = (MallUserVO) httpSession.getAttribute(Constants.MALL_USER_SESSION_KEY);
         Boolean deleteResult = mallShoppingCartItemService.deleteById(mallShoppingCartItemId);

@@ -1,5 +1,7 @@
 package com.xjm.mall.service;
 
+import com.xjm.mall.controller.vo.MallUserVO;
+import com.xjm.mall.domain.MallUser;
 import com.xjm.mall.utils.PageQueryUtil;
 import com.xjm.mall.utils.PageResult;
 
@@ -45,5 +47,13 @@ public interface MallUserService {
          * @return
          */
         String login(String loginName, String passwordMD5, HttpSession httpSession);
+
+        /**
+         * 用户信息修改并返回最新的用户信息
+         *
+         * @param mallUser
+         * @return
+         */
+        MallUserVO updateUserInfo(MallUser mallUser, HttpSession httpSession);
 
 }

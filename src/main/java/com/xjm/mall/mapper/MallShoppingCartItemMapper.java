@@ -14,5 +14,7 @@ public interface MallShoppingCartItemMapper extends MyMapper<MallShoppingCartIte
 
     List<MallShoppingCartItem> selectByUserId(@Param("newBeeMallUserId") Long newBeeMallUserId, @Param("number") int number);
 
+    int deleteBatch(List<Long> ids);
+
 
 }

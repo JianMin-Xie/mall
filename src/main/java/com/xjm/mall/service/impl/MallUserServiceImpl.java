@@ -87,4 +87,22 @@ public class MallUserServiceImpl implements MallUserService {
         }
         return ServiceResultEnum.LOGIN_ERROR.getResult();
     }
+
+    @Override
+    public MallUserVO updateUserInfo(MallUser mallUser, HttpSession httpSession) {
+        MallUser user = mallUserMapper.selectByPrimaryKey(mallUser.getUserId());
+        if (user != null) {
+            user.setNickName(mallUser.getNickName());
+            user.setAddress(mallUser.getAddress());
+            user.setIntroduceSign(mallUser.getIntroduceSign());
+            if (mallUserMapper.updateByPrimaryKeySelective(user) > 0) {
+                MallUserVO mallUserVO = new MallUserVO();
+                user = mallUserMapper.selectByPrimaryKey(mallUser.getUserId());
+                BeanUtil.copyProperties(user, mallUserVO);
+                httpSession.setAttribute(Constants.MALL_USER_SESSION_KEY, mallUserVO);
+                return mallUserVO;
+            }
+        }
+        return null;
+    }
 }

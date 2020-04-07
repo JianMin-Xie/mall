@@ -25,7 +25,7 @@ public class AdminController {
     @Resource
     private MallAdminUserService adminUserService;
 
-    @GetMapping({"","/","/index","/index.html"})
+    @GetMapping({"", "/", "/index", "/index.html"})
     public String index() {
         return "admin/index";
     }

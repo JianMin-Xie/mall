@@ -47,8 +47,8 @@ public class ShoppingCartController {
                 return "error/error_5xx";
             }
             //总价
-            for (MallShoppingCartItemVO newBeeMallShoppingCartItemVO : myShoppingCartItems) {
-                priceTotal += newBeeMallShoppingCartItemVO.getGoodsCount() * newBeeMallShoppingCartItemVO.getSellingPrice();
+            for (MallShoppingCartItemVO mallShoppingCartItemVO : myShoppingCartItems) {
+                priceTotal += mallShoppingCartItemVO.getGoodsCount() * mallShoppingCartItemVO.getSellingPrice();
             }
             if (priceTotal < 1) {
                 return "error/error_5xx";

@@ -5,6 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
+ * 返还给前端的结果
  * @author Jm
  */
 @Data

@@ -48,6 +48,7 @@ public class MallGoodsController {
         return "admin/mall_goods";
     }
 
+
     @GetMapping("/goods/edit")
     public String edit(HttpServletRequest request) {
         request.setAttribute("path", "edit");

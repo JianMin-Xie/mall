@@ -4,18 +4,17 @@ import com.xjm.mall.common.Constants;
 import com.xjm.mall.controller.vo.MallUserVO;
 import com.xjm.mall.domain.MallUser;
 import com.xjm.mall.enums.ServiceResultEnum;
+import com.xjm.mall.mapper.MallUserMapper;
+import com.xjm.mall.service.MallUserService;
 import com.xjm.mall.utils.BeanUtil;
 import com.xjm.mall.utils.MD5Util;
 import com.xjm.mall.utils.PageQueryUtil;
 import com.xjm.mall.utils.PageResult;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
-
-import com.xjm.mall.mapper.MallUserMapper;
-import com.xjm.mall.service.MallUserService;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -85,6 +84,7 @@ public class MallUserServiceImpl implements MallUserService {
             httpSession.setAttribute(Constants.MALL_USER_SESSION_KEY, mallUserVO);
             return ServiceResultEnum.SUCCESS.getResult();
         }
+
         return ServiceResultEnum.LOGIN_ERROR.getResult();
     }
 

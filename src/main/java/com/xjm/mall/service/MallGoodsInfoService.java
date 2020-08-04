@@ -4,20 +4,20 @@ import com.xjm.mall.domain.MallGoodsInfo;
 import com.xjm.mall.utils.PageQueryUtil;
 import com.xjm.mall.utils.PageResult;
 
-import java.util.List;
-
 /**
 @author Jm
 @create 2020-03-31 14:23
 */  
 public interface MallGoodsInfoService{
-        /**
-         * 获取商品详情
-         *
-         * @param id
-         * @return
-         */
-        MallGoodsInfo getMallGoodsById(Long id);
+
+
+    /**
+     * 获取商品详情
+     *
+     * @param id
+     * @return
+     */
+    MallGoodsInfo getMallGoodsById(Long id);
 
     /**
      * 后台分页

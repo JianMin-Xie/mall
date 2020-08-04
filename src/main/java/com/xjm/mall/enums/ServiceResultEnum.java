@@ -23,7 +23,7 @@ public enum ServiceResultEnum {
 
     SHOPPING_CART_ITEM_LIMIT_NUMBER_ERROR("超出单个商品的最大购买数量！"),
 
-    LOGIN_ERROR("登录失败！"),
+    LOGIN_ERROR("账号或密码错误！"),
 
     LOGIN_USER_LOCKED("用户已被禁止登录！"),
 

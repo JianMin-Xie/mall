@@ -3,15 +3,15 @@ package com.xjm.mall.service.impl;
 import com.xjm.mall.controller.vo.MallSearchGoodsVO;
 import com.xjm.mall.domain.MallGoodsInfo;
 import com.xjm.mall.enums.ServiceResultEnum;
+import com.xjm.mall.mapper.MallGoodsInfoMapper;
+import com.xjm.mall.service.MallGoodsInfoService;
 import com.xjm.mall.utils.BeanUtil;
 import com.xjm.mall.utils.PageQueryUtil;
 import com.xjm.mall.utils.PageResult;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
-import com.xjm.mall.mapper.MallGoodsInfoMapper;
-import com.xjm.mall.service.MallGoodsInfoService;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,6 +26,7 @@ public class MallGoodsInfoServiceImpl implements MallGoodsInfoService{
     @Resource
     private MallGoodsInfoMapper mallGoodsInfoMapper;
 
+
     @Override
     public MallGoodsInfo getMallGoodsById(Long id) {
         return mallGoodsInfoMapper.selectByPrimaryKey(id);
@@ -36,6 +37,7 @@ public class MallGoodsInfoServiceImpl implements MallGoodsInfoService{
         List<MallGoodsInfo> mallGoodsList = mallGoodsInfoMapper.findMallGoodsList(pageUtil);
         int totalMallGoods = mallGoodsInfoMapper.getTotalMallGoods(pageUtil);
         PageResult pageResult = new PageResult(mallGoodsList, totalMallGoods, pageUtil.getLimit(), pageUtil.getPage());
+
         return pageResult;
     }
 

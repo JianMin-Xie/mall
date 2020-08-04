@@ -58,7 +58,7 @@ public class CommonController {
         properties.put("kaptcha.image.height", "40");
         properties.put("kaptcha.session.key", Constants.MALL_VERIFY_CODE_KEY);
         properties.put("kaptcha.textproducer.char.space", "2");
-        properties.put("kaptcha.textproducer.char.length", "6");
+//        properties.put("kaptcha.textproducer.char.length", "6");
         Config config = new Config(properties);
         newBeeMallLoginKaptcha.setConfig(config);
         byte[] captchaOutputStream = null;

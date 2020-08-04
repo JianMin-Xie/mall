@@ -31,6 +31,8 @@ public class GoodsController {
     @Resource
     private MallGoodsCategoryService mallGoodsCategoryService;
 
+
+
     @GetMapping({"/search", "/search.html"})
     public String searchPage(@RequestParam Map<String, Object> params, HttpServletRequest request) {
         if (StringUtils.isEmpty(params.get("page"))) {
